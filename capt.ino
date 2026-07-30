@@ -1,26 +1,26 @@
-#include <Servo.h>  // Bibliothèque pour contrôler le servomoteur
+#include <Servo.h>  
 
-#define CAPTEUR_IR 12  // Broche de sortie du capteur
-#define SERVO_PIN 13   // Broche du servomoteur
+#define CAPTEUR_IR 12  
+#define SERVO_PIN 13   
 
-Servo monServo;  // Création de l'objet Servo
+Servo monServo;  
 
 void setup() {
     pinMode(CAPTEUR_IR, INPUT);
     monServo.attach(SERVO_PIN);
-    monServo.write(90); // Position neutre au démarrage
+    monServo.write(90); 
 }
 
 void loop() {
-    int etatCapteur = digitalRead(CAPTEUR_IR); // Lire la sortie du capteur
+    int etatCapteur = digitalRead(CAPTEUR_IR); 
 
-    if (etatCapteur == LOW) { // Si un obstacle est détecté
-        monServo.write(90); // Tourner le servo à 180°
+    if (etatCapteur == LOW) { 
+        monServo.write(90); 
     } else {
-        monServo.write(0); // Retour à la position initiale
+        monServo.write(0); 
     }
 
-    delay(100); // Petite pause pour éviter trop de changements rapides
+    delay(100); 
 }
 
 
